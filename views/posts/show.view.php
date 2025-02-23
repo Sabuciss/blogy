@@ -3,8 +3,6 @@
 
 <h1><?= htmlspecialchars($post["content"])?></h1>
 
-<p><strong>Kas tas ir:</strong> <?= $post['fruit_name'] ?: "Nav nekā" ?></p>
-
 <button  class="button"><a href="edit?id=<?=$post["id"] ?>">Rediģēt </a><button>
  
  <form method="POST" action="/delete" >

@@ -1,36 +1,23 @@
 <?php require "views/component/header.php"; ?>
 <?php require "views/component/navbar.php"; ?>
-
-<h1>Rediģēt bloga ierakstu</h1>
-
 <div class="container">
-    <form method="POST">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($post['id']) ?>" />
 
-        <label for="category_id">Piederība:</label>
-        <select name="category_id" id="category_id">
-            <option value="">Izvēlies </option>
-            <?php foreach ($categories as $fruit): ?>
-                <option value="<?= htmlspecialchars($fruit['id']) ?>" 
-                    <?= ($post['category_id'] == $fruit['id']) ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($fruit['fruit_name']) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
+    <h1>Redige ieraksu</h1>
 
-        <?php if (isset($errors["category_id"])): ?>
-            <p class="error"><?= htmlspecialchars($errors["category_id"]) ?></p>
-        <?php endif; ?>
+        <form method="POST">
 
-        <label for="content">Saturs:</label>
-        <input type="text" id="content" name="content" value="<?= htmlspecialchars($_POST['content'] ?? $post['content']) ?>" />
-        
-        <?php if (isset($errors["content"])): ?>
-            <p class="error"><?= htmlspecialchars($errors["content"]) ?></p>
-        <?php endif; ?>
+        <label>
+        <input type="hidden" name="id" value="<?= $post["id"] ?>" />
+        </label>
 
-        <button class="button" type="submit">Saglabāt izmaiņas</button>
+    
+        <label>
+        <input type="text" name="content" value="<?= $post["content"] ?? '' ?>" id="ieraksts" >
+        <button type="submit">Saglabāt</button> 
+        </label>
+
     </form>
-</div>
 
+
+</div>
 <?php require "views/component/footer.php"; ?>
