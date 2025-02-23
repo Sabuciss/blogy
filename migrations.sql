@@ -26,3 +26,7 @@ INSERT INTO posts (content, category_id) VALUES
 ("tomāts", 2), 
 ("ābols", 1),  
 ("banāns", 1); 
+
+SELECT posts.id, posts.content, fruits.fruit_name 
+FROM posts 
+LEFT JOIN fruits ON posts.category_id = fruits.id;
